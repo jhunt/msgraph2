@@ -27,11 +27,11 @@ def literal_token(token):
   return lambda: token
 
 def file_token(file):
-  def read_token_from(file):
+  def reader():
     with open(file, 'r') as io:
       r = json.load(io)
       return r['access_token'] if 'access_token' in r else None
-  return lambda: read_token_from(file)
+  return reader
 
 class API:
   def __init__(self, tokenfn):
