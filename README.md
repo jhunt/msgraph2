@@ -34,3 +34,25 @@ from the file every time it is needed.  Other keys in the token
 JSON file will be explicitly ignored, so if you have a system of
 refreshing access tokens that rewrites the on-disk file every
 refresh, everything Just Works(TM).
+
+If you are running a copy of [Oauth-Taker][1], you can point
+msgraph there with the `msgraph.oauth_taker_token()` helper
+instead:
+
+[1]: https://github.com/jhunt/oauth-taker
+
+```python
+import msgraph
+
+sp = msgraph.SafeSharePoint(
+  host='yours.sharepoint.com',
+  site='SITE-NAME',
+  library='A Document Library',
+  token=msgraph.oauth_taker_token(
+    endpoint='https://ot.example.com/t/handler/t0',
+    shared_key='my-sekrit-key-for-getting-tokens'
+  )
+)
+
+sp.mkdir("/Incoming/Uploaded Documents", make_parents=True)
+```

@@ -33,6 +33,15 @@ def file_token(file):
       return r['access_token'] if 'access_token' in r else None
   return reader
 
+def oauth_taker_token(endpoint, shared_key):
+  def reader():
+    r = request('GET', endpoint, headers={
+      'Accept': 'application/json',
+      'Authorization': f'API-Key {shared_key}'
+    }).json()
+    return r['access_token'] if 'access_token' in r else None
+  return reader
+
 class API:
   def __init__(self, tokenfn):
     self.tokenfn = tokenfn
