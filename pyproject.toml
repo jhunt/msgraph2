@@ -23,8 +23,8 @@ classifiers = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/jhunt/msgraph/blob/main/README.md"
-Issues = "https://github.com/jhunt/msgraph/issues"
-Source = "https://github.com/jhunt/msgraph"
+Documentation = "https://github.com/jhunt/msgraph2/blob/main/README.md"
+Issues = "https://github.com/jhunt/msgraph2/issues"
+Source = "https://github.com/jhunt/msgraph2"
 
 [tool.setuptools_scm]
